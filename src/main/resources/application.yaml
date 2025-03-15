@@ -1,1 +1,13 @@
-spring.application.name=matrix-springfw
+spring:
+  application:
+    name: matrix-springfw
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/student_db
+    username: postgres
+    password: mysecurepassword
+    driver-class-name: org.postgresql.Driver

@@ -1,8 +1,7 @@
-package org.example.matrixspringfw.entity;
+package org.example.matrixspringfw.dao;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.Objects;
 
@@ -12,6 +11,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Table(name="ada_students")
 public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,8 @@ public class StudentEntity {
     @Column(name = "last_Name")
     public String lastName;
     public int age;
-
+    @OneToOne(cascade =CascadeType.PERSIST)
+public AdressEntity adress;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
